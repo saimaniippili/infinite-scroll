@@ -1,0 +1,218 @@
+{
+  "photographs": [
+    {
+      "id": "photo-1780838068809",
+      "url": "/images/1780838068740-379004045.png",
+      "title": "Picture1",
+      "location": "kateel",
+      "year": "2026",
+      "camera": "vivo x300",
+      "lens": "70mm ",
+      "collection": "Archive",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838470856-0",
+      "url": "/images/1780838470700-454421490.png",
+      "title": "Photograph 2",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838470856-1",
+      "url": "/images/1780838470783-262595868.png",
+      "title": "Photograph 3",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838470856-2",
+      "url": "/images/1780838470800-956259938.png",
+      "title": "Photograph 4",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-0",
+      "url": "/images/1780838558143-758857067.png",
+      "title": "Photograph 5",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-1",
+      "url": "/images/1780838558175-531621426.png",
+      "title": "Photograph 6",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-2",
+      "url": "/images/1780838558197-74470919.png",
+      "title": "Photograph 7",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-3",
+      "url": "/images/1780838558230-591470009.png",
+      "title": "Photograph 8",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-4",
+      "url": "/images/1780838558346-964018279.png",
+      "title": "Photograph 9",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-5",
+      "url": "/images/1780838558399-192169465.png",
+      "title": "Photograph 10",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-6",
+      "url": "/images/1780838558407-615587038.png",
+      "title": "Photograph 11",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-7",
+      "url": "/images/1780838558415-531699078.png",
+      "title": "Photograph 12",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-8",
+      "url": "/images/1780838558448-227496050.png",
+      "title": "Photograph 13",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-9",
+      "url": "/images/1780838558466-962505849.png",
+      "title": "Photograph 14",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-10",
+      "url": "/images/1780838558513-197813987.png",
+      "title": "Photograph 15",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-11",
+      "url": "/images/1780838558693-521205933.png",
+      "title": "Photograph 16",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-12",
+      "url": "/images/1780838558782-666779055.png",
+      "title": "Photograph 17",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-13",
+      "url": "/images/1780838558958-9093783.png",
+      "title": "Photograph 18",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-14",
+      "url": "/images/1780838558993-764377882.png",
+      "title": "Photograph 19",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-15",
+      "url": "/images/1780838559035-177601090.png",
+      "title": "Photograph 20",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-16",
+      "url": "/images/1780838559137-266780694.png",
+      "title": "Photograph 21",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-17",
+      "url": "/images/1780838559198-526530258.png",
+      "title": "Photograph 22",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-18",
+      "url": "/images/1780838559264-758544207.png",
+      "title": "Photograph 23",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-19",
+      "url": "/images/1780838559318-255725982.png",
+      "title": "Photograph 24",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-20",
+      "url": "/images/1780838559553-553551562.png",
+      "title": "Photograph 25",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-21",
+      "url": "/images/1780838559609-506687916.png",
+      "title": "Photograph 26",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-22",
+      "url": "/images/1780838559653-952052832.png",
+      "title": "Photograph 27",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-23",
+      "url": "/images/1780838559711-983634417.png",
+      "title": "Photograph 28",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-24",
+      "url": "/images/1780838559730-171231882.png",
+      "title": "Photograph 29",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    },
+    {
+      "id": "photo-1780838559818-25",
+      "url": "/images/1780838559782-274646829.png",
+      "title": "Photograph 30",
+      "camera": "Vivo X300",
+      "aspectRatio": 0.666
+    }
+  ]
+}
