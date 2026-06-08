@@ -186,10 +186,11 @@ const Overlay: React.FC = () => {
             right: 20px;
           }
           .active-info {
-            bottom: 15px;
+            bottom: 60px; /* Increased to avoid being cut off by mobile browser UI */
             left: 0;
             width: 100%;
             text-align: center;
+            padding-bottom: env(safe-area-inset-bottom, 20px);
           }
           .active-title {
             font-size: 24px;
