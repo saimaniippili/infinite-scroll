@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGalleryStore } from '../store';
 import { X } from 'lucide-react';
 
 const Overlay: React.FC = () => {
   const { activeImageId, setActiveImageId, hoveredImageId, photographs } = useGalleryStore();
+  const [showRotatePrompt, setShowRotatePrompt] = useState(true);
 
   const activeData = activeImageId ? photographs.find((p) => p.id === activeImageId) : null;
   const hoveredData = hoveredImageId ? photographs.find((p) => p.id === hoveredImageId) : null;
@@ -66,11 +67,19 @@ const Overlay: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      <div className="portrait-lock">
-        <div className="portrait-icon">↻</div>
-        <h2>Rotate Device</h2>
-        <p>Please rotate your phone sideways<br/>for the full exhibition experience.</p>
-      </div>
+      {showRotatePrompt && (
+        <div className="portrait-lock">
+          <button className="dismiss-rotate" onClick={() => setShowRotatePrompt(false)}>
+            <X size={24} />
+          </button>
+          <div className="portrait-icon">↻</div>
+          <h2>Rotate Device</h2>
+          <p>We recommend rotating your phone sideways<br/>for the best exhibition experience.</p>
+          <button className="continue-btn" onClick={() => setShowRotatePrompt(false)}>
+            Continue in Portrait
+          </button>
+        </div>
+      )}
 
       <style>{`
         .overlay-container {
@@ -108,7 +117,7 @@ const Overlay: React.FC = () => {
           position: absolute;
           top: 40px;
           left: 40px;
-          width: 180px; /* Reduced from 240px */
+          width: 140px;
           display: flex;
           flex-direction: column;
         }
@@ -211,13 +220,35 @@ const Overlay: React.FC = () => {
           .portrait-lock {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 99999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+          }
+          .dismiss-rotate {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #111;
+            cursor: pointer;
+            padding: 10px;
+          }
+          .continue-btn {
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
           }
           .portrait-lock h2 {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

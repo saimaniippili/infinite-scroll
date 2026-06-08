@@ -131,13 +131,16 @@ const Gallery: React.FC = () => {
         targetRotation.current = current + diff;
         currentCamAngle.current = THREE.MathUtils.damp(currentCamAngle.current, targetRotation.current, 4, delta);
 
-        const d = activeItem.radius + 9; // Zoomed in distance 
+        const isMobile = window.innerWidth < 768;
+        const d = activeItem.radius + (isMobile ? 12 : 9); // Pull camera back on mobile for elegant negative space
         
         state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, Math.sin(currentCamAngle.current) * d, 4, delta);
         state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, Math.cos(currentCamAngle.current) * d, 4, delta);
         state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, activeItem.position.y, 4, delta);
         
-        state.camera.lookAt(0, activeItem.position.y, 0);
+        const lookAtYOffset = isMobile ? -0.4 : 0; // Reduced upward shift since the image is now smaller
+        
+        state.camera.lookAt(0, activeItem.position.y + lookAtYOffset, 0);
       }
     } else {
       if (!isDragging.current) {

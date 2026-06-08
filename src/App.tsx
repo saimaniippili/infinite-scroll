@@ -1,17 +1,20 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
+import { Loader } from '@react-three/drei';
 import Gallery from './components/Gallery';
 import Overlay from './components/Overlay';
 import CustomCursor from './components/CustomCursor';
 
 function App() {
+  const isMobile = window.innerWidth < 768;
+
   return (
     <>
       <CustomCursor />
       <Canvas
         style={{ touchAction: 'none' }}
-        camera={{ position: [0, 0, 0], fov: 45 }}
+        camera={{ position: [0, 0, 0], fov: isMobile ? 80 : 45 }}
         dpr={[1, 2]} // Support high-dpi displays but cap at 2 for perf
         gl={{ 
           antialias: true, // Re-enabling antialias since post-processing is removed
@@ -30,6 +33,12 @@ function App() {
         </Suspense>
       </Canvas>
       <Overlay />
+      <Loader 
+        containerStyles={{ background: '#ffffff' }}
+        innerStyles={{ width: '300px' }}
+        barStyles={{ background: '#111111' }}
+        dataStyles={{ color: '#111111', fontFamily: 'Inter, sans-serif' }}
+      />
     </>
   );
 }
