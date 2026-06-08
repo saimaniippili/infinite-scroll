@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Loader } from '@react-three/drei';
 import Gallery from './components/Gallery';
 import Overlay from './components/Overlay';
 import CustomCursor from './components/CustomCursor';
@@ -33,12 +32,6 @@ function App() {
         </Suspense>
       </Canvas>
       <Overlay />
-      <Loader 
-        containerStyles={{ background: '#ffffff' }}
-        innerStyles={{ width: '300px' }}
-        barStyles={{ background: '#111111' }}
-        dataStyles={{ color: '#111111', fontFamily: 'Inter, sans-serif' }}
-      />
     </>
   );
 }

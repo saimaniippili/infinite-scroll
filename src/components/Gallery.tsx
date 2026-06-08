@@ -4,6 +4,17 @@ import * as THREE from 'three';
 import Photograph from './Photograph';
 import { useGalleryStore } from '../store';
 
+const FallbackCard = ({ position, rotation, scale }: any) => {
+  return (
+    <group position={position} rotation={rotation}>
+      <mesh scale={[2.4 * scale, 3.6 * scale, 1]}>
+        <planeGeometry args={[1, 1]} />
+        <meshBasicMaterial color="#f0f0f0" side={THREE.DoubleSide} />
+      </mesh>
+    </group>
+  );
+};
+
 const Gallery: React.FC = () => {
   const groupRef = useRef<THREE.Group>(null);
   const activeImageId = useGalleryStore((state) => state.activeImageId);
@@ -167,7 +178,9 @@ const Gallery: React.FC = () => {
   return (
     <group ref={groupRef}>
       {items.map((item) => (
-        <Photograph key={item.id} data={item} />
+        <React.Suspense key={item.id} fallback={<FallbackCard position={item.position} rotation={item.rotation} scale={item.scale} />}>
+          <Photograph data={item} />
+        </React.Suspense>
       ))}
     </group>
   );
