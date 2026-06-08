@@ -26,7 +26,7 @@ const Photograph: React.FC<PhotographProps> = ({ data }) => {
   const isActive = activeImageId === data.id;
   const isAnyActive = activeImageId !== null;
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!meshRef.current) return;
     
     let targetScale = data.scale;

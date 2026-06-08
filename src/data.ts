@@ -10,20 +10,7 @@ export interface PhotographData {
   aspectRatio: number;
 }
 
-const fallbackImages = [
-  "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2070&auto=format&fit=crop", // Photography camera
-  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1964&auto=format&fit=crop", // Camera lens
-  "https://images.unsplash.com/photo-1533167649158-6d508895b680?q=80&w=1932&auto=format&fit=crop", // City
-  "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1854&auto=format&fit=crop", // Portrait
-  "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2071&auto=format&fit=crop", // Nature
-  "https://images.unsplash.com/photo-1447958272669-9c562446304f?q=80&w=2000&auto=format&fit=crop", // Mountain
-  "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=1973&auto=format&fit=crop", // Ice
-  "https://images.unsplash.com/photo-1506744626753-143d4cba7993?q=80&w=2000&auto=format&fit=crop", // Landscape
-  "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2070&auto=format&fit=crop", // Desert
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop", // Woman portrait
-  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1887&auto=format&fit=crop", // Fashion portrait
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop", // Another portrait
-];
+
 
 const localImages = [
   "/images/photo_1.png",

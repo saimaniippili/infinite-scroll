@@ -1,15 +1,9 @@
 import { create } from 'zustand';
 import dbData from '../server/db.json';
-
-export interface Photograph {
-  id: string;
-  url: string;
-  title: string;
-  cameraModel: string;
-}
+import type { PhotographData } from './data';
 
 interface GalleryState {
-  photographs: Photograph[];
+  photographs: PhotographData[];
   isLoading: boolean;
   activeImageId: string | null;
   hoveredImageId: string | null;

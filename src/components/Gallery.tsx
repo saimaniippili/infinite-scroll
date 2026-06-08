@@ -1,8 +1,7 @@
-import React, { useRef, useMemo, useEffect, useState } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import Photograph from './Photograph';
-import type { PhotographData } from '../data';
 import { useGalleryStore } from '../store';
 
 const Gallery: React.FC = () => {
@@ -17,14 +16,11 @@ const Gallery: React.FC = () => {
   const mousePosition = useRef(new THREE.Vector2(0, 0));
 
   const photographs = useGalleryStore((state) => state.photographs);
-  const setPhotographs = useGalleryStore((state) => state.setPhotographs);
+  const fetchPhotographs = useGalleryStore((state) => state.fetchPhotographs);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/images')
-      .then(res => res.json())
-      .then(data => setPhotographs(data))
-      .catch(err => console.error("Failed to load images from backend:", err));
-  }, []);
+    fetchPhotographs();
+  }, [fetchPhotographs]);
 
   const totalImages = photographs.length;
   // DYNAMIC RADIUS SCALING: Expands the circle math to prevent overlap when total images > 50
