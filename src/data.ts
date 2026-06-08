@@ -13,11 +13,11 @@ export interface PhotographData {
 
 
 const localImages = [
-  "/images/photo_1.png",
-  "/images/photo_2.png",
-  "/images/photo_3.png",
-  "/images/photo_4.png",
-  "/images/photo_5.png"
+  "/images/photo_1.webp",
+  "/images/photo_2.webp",
+  "/images/photo_3.webp",
+  "/images/photo_4.webp",
+  "/images/photo_5.webp"
 ];
 
 // Generate 40 images looping over our 5 samples
