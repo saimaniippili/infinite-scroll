@@ -36,9 +36,9 @@ const Gallery: React.FC = () => {
   const totalImages = photographs.length;
   const isMobileRender = window.innerWidth < 768;
   // DYNAMIC RADIUS SCALING: Expands the circle math to prevent overlap when total images > 50
-  // On mobile, expand the radius further to hide neighbors from the narrow field of view
+  // On mobile, expand the radius further to completely hide neighbors
   const radius = isMobileRender 
-    ? Math.max(22, (totalImages * 3.5) / (Math.PI * 2))
+    ? Math.max(25, (totalImages * 4.0) / (Math.PI * 2))
     : Math.max(17.5, (totalImages * 2.5) / (Math.PI * 2));
   
   const items = useMemo(() => {
@@ -143,8 +143,8 @@ const Gallery: React.FC = () => {
         currentCamAngle.current = THREE.MathUtils.damp(currentCamAngle.current, targetRotation.current, 4, delta);
 
         const isMobile = window.innerWidth < 768;
-        // On mobile, zoom much closer so the active photograph is large and prominent
-        const d = activeItem.radius + (isMobile ? 5.5 : 9); 
+        // Zoom out slightly on mobile so the image isn't too tall, leaving space for the text below
+        const d = activeItem.radius + (isMobile ? 7.5 : 9); 
         
         state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, Math.sin(currentCamAngle.current) * d, 4, delta);
         state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, Math.cos(currentCamAngle.current) * d, 4, delta);
@@ -152,7 +152,8 @@ const Gallery: React.FC = () => {
         const camY = isMobile ? 0 : activeItem.position.y;
         state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, camY, 4, delta);
         
-        const lookAtYOffset = isMobile ? 0 : 0; 
+        // Shift camera lookAt DOWN so the image moves UP on the screen, freeing the bottom white space for text
+        const lookAtYOffset = isMobile ? -0.8 : 0; 
         
         state.camera.lookAt(0, camY + lookAtYOffset, 0);
       }
