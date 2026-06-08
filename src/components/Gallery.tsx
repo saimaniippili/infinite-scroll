@@ -34,8 +34,12 @@ const Gallery: React.FC = () => {
   }, [fetchPhotographs]);
 
   const totalImages = photographs.length;
+  const isMobileRender = window.innerWidth < 768;
   // DYNAMIC RADIUS SCALING: Expands the circle math to prevent overlap when total images > 50
-  const radius = Math.max(17.5, (totalImages * 2.5) / (Math.PI * 2));
+  // On mobile, expand the radius further to hide neighbors from the narrow field of view
+  const radius = isMobileRender 
+    ? Math.max(22, (totalImages * 3.5) / (Math.PI * 2))
+    : Math.max(17.5, (totalImages * 2.5) / (Math.PI * 2));
   
   const items = useMemo(() => {
     return photographs.map((photo, index) => {
@@ -139,15 +143,18 @@ const Gallery: React.FC = () => {
         currentCamAngle.current = THREE.MathUtils.damp(currentCamAngle.current, targetRotation.current, 4, delta);
 
         const isMobile = window.innerWidth < 768;
-        const d = activeItem.radius + (isMobile ? 12 : 9); // Pull camera back on mobile for elegant negative space
+        // On mobile, zoom much closer so the active photograph is large and prominent
+        const d = activeItem.radius + (isMobile ? 5.5 : 9); 
         
         state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, Math.sin(currentCamAngle.current) * d, 4, delta);
         state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, Math.cos(currentCamAngle.current) * d, 4, delta);
-        state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, activeItem.position.y, 4, delta);
+        // Center vertically on mobile
+        const camY = isMobile ? 0 : activeItem.position.y;
+        state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, camY, 4, delta);
         
-        const lookAtYOffset = isMobile ? -0.4 : 0; // Reduced upward shift since the image is now smaller
+        const lookAtYOffset = isMobile ? 0 : 0; 
         
-        state.camera.lookAt(0, activeItem.position.y + lookAtYOffset, 0);
+        state.camera.lookAt(0, camY + lookAtYOffset, 0);
       }
     } else {
       if (!isDragging.current) {
@@ -156,7 +163,9 @@ const Gallery: React.FC = () => {
 
       currentCamAngle.current = THREE.MathUtils.damp(currentCamAngle.current, targetRotation.current, 4, delta);
 
-      const d = radius + 14; // Orbit distance
+      const isMobile = window.innerWidth < 768;
+      // Orbit distance slightly closer on mobile
+      const d = radius + (isMobile ? 12 : 14); 
       
       // Orbit the camera instead of rotating the exhibition
       const orbitX = Math.sin(currentCamAngle.current) * d;
@@ -166,11 +175,15 @@ const Gallery: React.FC = () => {
       const parallaxX = mousePosition.current.x * 2;
       const parallaxY = mousePosition.current.y * 2;
 
+      // Perfectly center the gallery vertically on mobile (y=0) to remove the huge white space at top
+      const camY = isMobile ? 0 : parallaxY + 2;
+      const lookAtY = isMobile ? 0 : parallaxY * 0.5;
+
       state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, orbitX + parallaxX, 4, delta);
       state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, orbitZ, 4, delta);
-      state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, parallaxY + 2, 4, delta);
+      state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, camY, 4, delta);
 
-      state.camera.lookAt(0, parallaxY * 0.5, 0); 
+      state.camera.lookAt(0, lookAtY, 0); 
     }
   });
 
